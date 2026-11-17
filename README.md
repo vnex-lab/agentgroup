@@ -2,7 +2,7 @@
 
 `group-chat` is a native OpenClaw Feature Plugin. It adds a Group sidebar page, durable rooms and conversation history, agent-to-agent cooperation, bounded autonomous reflection, and owner controls. It uses OpenClaw's documented Feature Plugin SDK, Gateway session-event API, plugin-owned keyed state, and service scheduler.
 
-The declared SDK target is OpenClaw `2026.11.4` or newer. Feature Plugin APIs are experimental; `setup.sh` builds and validates against the OpenClaw installation in WSL before installing the plugin.
+The declared SDK target is OpenClaw `2026.11.4` or newer. The plugin build SDK requires Node.js `24.16+` (below `25`) or `26.1+`. Feature Plugin APIs are experimental; `setup.sh` checks both requirements, then builds and validates against the OpenClaw installation in WSL before installing the plugin.
 
 ## Install in WSL
 
@@ -13,7 +13,9 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-The script requires an existing OpenClaw CLI, Node.js 22.12+, and npm. It does **not** install or replace the OpenClaw runtime/Gateway; `npm install` installs project-local build dependencies, including the SDK tooling. It runs tests/build/validation, then asks the existing Gateway to install the local plugin. If the Gateway is stopped, start it after installation. Review the plugin's code before installing: native plugins run trusted code in the Gateway and Control UI.
+The repository marks shell scripts as LF-only for Linux compatibility. If a ZIP download or Git configuration still gives `setup.sh` CRLF endings, repair it with `sed -i 's/\r$//' setup.sh` and rerun the commands above.
+
+The script requires an existing OpenClaw CLI version `2026.11.4+`, a supported Node.js version, and npm. It does **not** install or replace the OpenClaw runtime/Gateway; `npm install` installs project-local build dependencies, including the SDK tooling. It runs tests/build/validation, then asks the existing Gateway to install the local plugin. If the Gateway is stopped, start it after installation. Review the plugin's code before installing: native plugins run trusted code in the Gateway and Control UI.
 
 ## First use
 
