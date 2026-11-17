@@ -1,0 +1,19 @@
+{
+  "id": "group-chat",
+  "name": "Group",
+  "description": "A persistent, permission-aware multi-agent community with bounded autonomous coordination.",
+  "version": "0.1.0",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "contracts": {
+    "tools": [
+      "group_chat_contribute"
+    ]
+  }
+}
